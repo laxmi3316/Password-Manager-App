@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PasswordManagerApp.Views.HomePage"
+             xmlns:vm="clr-namespace:PasswordManagerApp.ViewModels"
+             xmlns:ns="clr-namespace:PasswordManagerApp"
+             ns:ViewModelLocator.AutoWireViewModel="True">
+
+    <Grid Padding="10,10,10,10" HorizontalOptions="Start"  VerticalOptions="Start" BackgroundColor="LightBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Text="UserName" HorizontalTextAlignment="Start" VerticalOptions="Center"></Label>
+        <Entry Grid.Row="0" Grid.Column="1" Text="{Binding UserName}" />
+        <Label Grid.Row="1" Grid.Column="0" Text="Password"  HorizontalTextAlignment="Start" VerticalOptions="Center"></Label>
+        <Entry Grid.Row="1" Grid.Column="1" Text=" {Binding Password}"/>
+        <Label Grid.Row="2" Grid.Column="0" Text="Website" HorizontalTextAlignment="Start" VerticalOptions="Center"></Label>
+        <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Website}"/>
+        <Label Grid.Row="3" Grid.Column="0" Text="URL" HorizontalTextAlignment="Start" VerticalOptions="Center"></Label>
+        <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Url}"/>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="Center"/>
+
+            <ListView Grid.Row="5" Grid.Column="0" ItemsSource="{Binding UserDataList}" HasUnevenRows="True" Margin="10,10,10,10" SeparatorColor="Black">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="UserName:"/>
+                                    <Label Text="{Binding UserName, Mode=TwoWay}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Password:"/>
+                                    <Label Text="{Binding Password, Mode=TwoWay}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Website:"/>
+                                    <Label Text="{Binding Website, Mode=TwoWay}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="URL:"/>
+                                    <Label Text="{Binding Url, Mode=TwoWay}"/>
+                                    </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    
+</ContentPage>

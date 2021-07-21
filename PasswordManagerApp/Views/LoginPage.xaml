@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PasswordManagerApp.Views.LoginPage"
+             xmlns:vm="clr-namespace:PasswordManagerApp.ViewModels"
+             xmlns:ns="clr-namespace:PasswordManagerApp"
+             ns:ViewModelLocator.AutoWireViewModel="True">
+
+    <ContentPage.Content >
+        <Grid BackgroundColor="LightBlue">
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" >
+            <Label Text="Login with Master Password"/>
+            <Entry x:Name="LoginPasswordEntry" Text="{Binding MasterPassword}"/>
+            <Button Text="Login" Command="{Binding LoginCommand}" />
+        </StackLayout>
+        </Grid>  
+    </ContentPage.Content>
+</ContentPage>
